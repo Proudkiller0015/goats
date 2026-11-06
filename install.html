@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Install G.O.A.T.S.</title>
+<link rel="icon" href="icon-64.png">
+<style>
+	:root { --bg: #fff7fb; --card: #ffffff; --ink: #4a2340; --soft: #a0638a; --pink: #c9a227; --line: #ffd1e8; --mint: #9fe8ff; }
+	@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #141a33; --card: #1d2550; --ink: #dfe6ff; --soft: #8f9fd6; --pink: #e0b94a; --line: #2f3b75; } }
+	:root[data-theme="dark"] { --bg: #141a33; --card: #1d2550; --ink: #dfe6ff; --soft: #8f9fd6; --pink: #e0b94a; --line: #2f3b75; }
+	* { box-sizing: border-box; }
+	body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.5 "Trebuchet MS", "Segoe UI", sans-serif; }
+	main { max-width: 640px; margin: 0 auto; padding: 32px 16px 48px; }
+	header { text-align: center; margin-bottom: 24px; }
+	header img { width: 96px; height: 96px; }
+	h1 { margin: 8px 0 4px; font-size: 32px; }
+	header p { margin: 0; color: var(--soft); }
+	section { background: var(--card); border: 2px solid var(--line); border-radius: 20px; padding: 18px 20px; margin: 16px 0; }
+	h2 { margin: 0 0 8px; font-size: 20px; }
+	ol { margin: 8px 0 0; padding-left: 22px; }
+	li { margin: 6px 0; }
+	.bm { display: inline-block; padding: 10px 22px; border-radius: 999px; background: linear-gradient(135deg, #e0b94a, #c9a227); color: #fff; font-weight: bold;
+		text-decoration: none; box-shadow: 0 3px 10px #c9a22766; cursor: grab;
+		user-select: none; -webkit-user-select: none; -webkit-user-drag: element; }
+	.row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin: 12px 0; }
+	button { font: inherit; border: 2px solid var(--pink); color: var(--pink); background: transparent; border-radius: 999px; padding: 7px 16px; cursor: pointer; }
+	textarea { width: 100%; height: 86px; resize: vertical; border: 2px solid var(--line); border-radius: 12px; padding: 8px; background: var(--bg); color: var(--ink);
+		font: 12px/1.4 Consolas, monospace; }
+	.hint { color: var(--soft); font-size: 14px; }
+		.pick { display: flex; gap: 14px; flex-wrap: wrap; margin: 8px 0; font-weight: bold; }
+		.pick label { cursor: pointer; }
+		button.big { background: var(--pink); color: #fff; font-weight: bold; padding: 9px 20px; }
+		ul { margin: 4px 0; padding-left: 20px; }
+	.warn { margin-top: 6px; padding: 8px 10px; border-radius: 10px; border: 2px solid var(--pink); font-size: 14px; }
+	h3 { margin: 14px 0 4px; font-size: 16px; }
+	a { color: var(--pink); }
+	code { background: var(--bg); padding: 1px 6px; border-radius: 6px; }
+</style>
+</head>
+<body>
+<main>
+	<header>
+		<img src="icon-128.png" alt="">
+		<h1>🐐 G.O.A.T.S.</h1>
+		<p>Gangriel's Otherworldly Alcohol Transport System: serve otherworldly drinks in Bondage Club chat rooms. By Gangriel and SlimeQueenSamantha.</p>
+	</header>
+
+	<section>
+		<h2>🔖 Bookmark (no extension needed, phones too)</h2>
+		<h3>💻 On a computer: drag it</h3>
+		<p>Show your bookmarks bar (<code>Ctrl</code> + <code>Shift</code> + <code>B</code>) and drag this button onto it:</p>
+		<div class="row"><a class="bm" id="drag" href="#" draggable="true" title="Drag me to your bookmarks bar">🐐 G.O.A.T.S.</a></div>
+		<h3>📱 On a phone (or if dragging doesn't work)</h3>
+		<ol>
+			<li><button class="big" id="copy">📋 Copy the bookmark</button> <span class="hint" id="copied"></span></li>
+			<li>Make a new bookmark: on a computer press <code>Ctrl</code> + <code>D</code> on this page; on a phone tap ☆ (or ⋮ › ☆).</li>
+			<li>Edit it (on a phone: ⋮ › Bookmarks, then the bookmark's ⋮ › Edit): name it <b>goats</b>, and replace its address (URL) with what you copied. Save.
+				<div class="warn">⚠ The address must start with <code>javascript:</code>. Some browsers (Chrome) drop that word when you paste; if it's missing, type <code>javascript:</code> back at the very start. Without it the browser just searches for the code.</div></li>
+			<li>Open Bondage Club and log in, then open the bookmark:
+				<ul>
+					<li>Computer: click it in your bookmarks.</li>
+					<li>Phone: type <b>goats</b> in the address bar and tap the <b>bookmark</b> in the suggestions, not a search (phones only run bookmarks this way).</li>
+				</ul>
+			</li>
+			<li>In a chat room, type <code>/goats</code> to open the tavern.</li>
+		</ol>
+		<p class="hint">Open it each time you open the game. It always loads the newest G.O.A.T.S., so there's never anything to update. Opening it twice does nothing extra.</p>
+		<details>
+			<summary class="hint" style="cursor:pointer">Copy didn't work?</summary>
+			<p class="hint">Select all of this and copy it by hand:</p>
+			<textarea id="code" readonly></textarea>
+		</details>
+	</section>
+
+	<section>
+		<h2>🐒 Userscript (loads by itself)</h2>
+		<p>With <a href="https://violentmonkey.github.io/">Violentmonkey</a> or <a href="https://www.tampermonkey.net/">Tampermonkey</a>:
+			<a href="https://raw.githubusercontent.com/Proudkiller0015/goats/main/goats.user.js"><b>install G.O.A.T.S.</b></a>. It starts with the game every time, and updates itself.</p>
+	</section>
+
+	<p class="hint" style="text-align:center">Code and docs: <a href="https://github.com/Proudkiller0015/goats">github.com/Proudkiller0015/goats</a></p>
+</main>
+<script>
+	// The bookmark: loads the newest goats.js from GitHub Pages into the game page, once.
+	const code = "javascript:(function(){if(!window.GOATS){var s=document.createElement('script');s.src='https://proudkiller0015.github.io/goats/goats.js?v='+Date.now();s.crossOrigin='anonymous';document.head.appendChild(s);}})();";
+	const box = document.getElementById('code');
+	const drag = document.getElementById('drag');
+	box.value = code;
+	drag.href = code;
+	drag.addEventListener('selectstart', (e) => e.preventDefault());
+	drag.addEventListener('mousedown', (e) => e.stopPropagation());
+	drag.addEventListener('click', (e) => { e.preventDefault(); alert('Drag this button onto your bookmarks bar, then click the bookmark while you are in Bondage Club.'); });
+	document.getElementById('copy').addEventListener('click', async () => {
+		const out = document.getElementById('copied');
+		try { await navigator.clipboard.writeText(code); out.textContent = '✓ Copied! Now step 2.'; }
+		catch (e) { box.closest('details').open = true; box.select(); out.textContent = 'Copy it by hand from the box below.'; }
+	});
+</script>
+</body>
+</html>
